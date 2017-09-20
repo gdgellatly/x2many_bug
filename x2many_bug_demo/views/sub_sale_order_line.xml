@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="sub_sale_order_line_tree_view">
+            <field name="name">sub.sale.order.line.tree (in x2many_bug_demo)</field>
+            <field name="model">sub.sale.order.line</field>
+            <field name="arch" type="xml">
+                <tree string="Sub Order Line" editable="bottom">
+                    <field name="name"/>
+                    <field name="product_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="sale_order_form_view">
+            <field name="name">sale.order.form (in x2many_bug_demo)</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']//tree" position="attributes">
+                    <attribute name="editable"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//form//label[@for='name']" position="before">
+                    <field name="sub_order_line_ids" mode="tree" nolabel="1" colspan="5" >
+                        <tree string="Sub Order Line" editable="bottom">
+                            <!--<field name="sequence" widget="handle"/>-->
+                            <field name="name"/>
+                            <field name="product_id"/>
+                        </tree>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
