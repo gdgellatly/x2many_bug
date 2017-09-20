@@ -22,9 +22,9 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='order_line']//tree" position="attributes">
-                    <attribute name="editable"/>
-                </xpath>
+                <!--<xpath expr="//field[@name='order_line']//tree" position="attributes">-->
+                    <!--<attribute name="editable" />-->
+                <!--</xpath>-->
                 <xpath expr="//field[@name='order_line']//form//label[@for='name']" position="before">
                     <field name="sub_order_line_ids" mode="tree" nolabel="1" colspan="5" >
                         <tree string="Sub Order Line" editable="bottom">
