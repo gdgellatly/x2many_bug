@@ -35,7 +35,13 @@
                     </field>
                 </xpath>
                 <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom']" position="after">
-                    <field name="sub_order_line_ids" />
+                    <field name="sub_order_line_ids" >
+                        <tree string="Sub Order Line">
+                            <!--<field name="sequence" widget="handle"/>-->
+                            <field name="name"/>
+                            <field name="product_id"/>
+                        </tree>
+                    </field>
                 </xpath>
 
             </field>
