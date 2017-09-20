@@ -34,6 +34,10 @@
                         </tree>
                     </field>
                 </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom']" position="after">
+                    <field name="sub_order_line_ids" />
+                </xpath>
+
             </field>
         </record>
     </data>
